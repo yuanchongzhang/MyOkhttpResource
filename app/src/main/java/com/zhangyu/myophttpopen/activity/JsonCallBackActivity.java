@@ -37,7 +37,6 @@ public class JsonCallBackActivity extends BaseDetailActivity {
         setTitleBack(false, R.mipmap.ic_back);//有图标，但不是返回
         setTitleBack(true, 1);//返回
         setTitleRightText("jsoncallback");//右侧文字
-
         getZhaiqistData();
     }
 

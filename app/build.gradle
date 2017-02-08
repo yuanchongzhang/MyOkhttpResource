@@ -43,5 +43,4 @@ dependencies {
     compile project(':okgo')
     compile files('libs/super-helper-master-1.0.6.jar')
 
-    compile 'com.oushangfeng:PinnedSectionItemDecoration:1.2.4'
 }

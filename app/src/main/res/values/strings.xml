@@ -13,9 +13,6 @@
     <!--FirstFragment-->
 
     <!--SecondFragment-->
-    <string name="main_02_title_01">投资理财</string>
-    <string name="main_02_tab_01">投资列表</string>
-    <string name="main_02_tab_02">定期理财</string>
     <string name="main_02_chose_01">类型</string>
     <string name="main_02_chose_02">收益</string>
     <string name="main_02_chose_03">期限</string>
