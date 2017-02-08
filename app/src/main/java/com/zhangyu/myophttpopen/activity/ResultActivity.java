@@ -1,14 +1,12 @@
 package com.zhangyu.myophttpopen.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.zhangyu.myophttpopen.R;
-import com.zhangyu.myophttpopen.event.NewMessageEventCallBack;
-
-import de.greenrobot.event.EventBus;
 
 /**
  * Created by Administrator on 2017/2/6.
@@ -31,16 +29,13 @@ public class ResultActivity extends Activity {
                 // TODO Auto-generated method stub
                 /*EventBus.getDefault().post(
                         new NewMessageEventCallBack("返回值传递过来了"));*/
-                EventBus.getDefault().post(new NewMessageEventCallBack("返回值传递过来了"));
-              //  finish();
+                // EventBus.getDefault().post(new NewMessageEventCallBack("返回值传递过来了"));
+                //  finish();
 
-/*
                 Intent intent = new Intent();
-                intent.putExtra("message","返回值传递过来了");
-                setResult(100,intent);*/
-
+                intent.putExtra("message", "返回值传递过来了");
+                setResult(100, intent);
                 //  MainActivity.OnCityChangeCallBack.onCityChange2(message);
-
                 finish();
 
             }

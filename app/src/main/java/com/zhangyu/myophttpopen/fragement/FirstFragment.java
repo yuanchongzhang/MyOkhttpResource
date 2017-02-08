@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +15,6 @@ import android.widget.Toast;
 import com.zhangyu.myophttpopen.R;
 import com.zhangyu.myophttpopen.activity.ResultActivity;
 import com.zhangyu.myophttpopen.event.NewMessageEvent;
-import com.zhangyu.myophttpopen.event.NewMessageEventCallBack;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import de.greenrobot.event.EventBus;
 
@@ -52,7 +47,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(getActivity());
     }
 
     public void initListener() {
@@ -75,12 +70,10 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.btn_jumpResult:
-                startActivity(new Intent(getActivity(), ResultActivity.class));
-               /* Intent intent = new Intent(getActivity(), ResultActivity.class);
-
-                startActivityForResult(intent, 100);*/
+                //startActivity(new Intent(getActivity(), ResultActivity.class));
+                Intent intent = new Intent(getActivity(), ResultActivity.class);
+                startActivityForResult(intent, 100);
 //              startActivityForResult(new Intent(getActivity(),ResultActivity.class));
-
                 break;
 
         }
@@ -98,29 +91,19 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         String value = String.valueOf(resultCode);
     }
 
-    /*
+
     @Override
-    //dispaly the message received from intent
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        String value = String.valueOf(resultCode);
-        String dispaly = data.getStringExtra("message");
-        Log.e(TAG, value);
-
-        if (resultCode == mRequest_code) {
-            mSetText.setText(dispaly);
-
-        } else {
-            Toast.makeText(MainActivity.this, "Request code wrong", Toast.LENGTH_SHORT).show();
+    public void setMenuVisibility(boolean menuVisible) {
+        // TODO Auto-generated method stub
+        super.setMenuVisibility(menuVisible);
+        if (this.getView() != null) {
+            this.getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
         }
+    }
 
-    }*/
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(NewMessageEventCallBack event) {
-        String msg = "onEventMainThread收到了消息：" + event.message;
-        Log.d("harvic", msg);
-        Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
-        btn_jumptext.setText(msg);
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(getActivity());//反注册EventBus
     }
 }

@@ -170,4 +170,13 @@ public class ThirdFragment extends BaseFragment implements AdapterView.OnItemSel
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+    @Override
+    public void setMenuVisibility(boolean menuVisible) {
+        // TODO Auto-generated method stub
+        super.setMenuVisibility(menuVisible);
+        if (this.getView() != null) {
+            this.getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
+        }
+    }
+
 }

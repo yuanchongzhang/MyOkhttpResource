@@ -5,30 +5,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.zhangyu.myophttpopen.R;
 import com.zhangyu.myophttpopen.adapter.FragPagerAdapter;
-import com.zhangyu.myophttpopen.event.NewMessageEvent;
-import com.zhangyu.myophttpopen.fragement.FifthFragment;
-import com.zhangyu.myophttpopen.fragement.FirstFragment;
-import com.zhangyu.myophttpopen.fragement.FourthFragment;
 import com.zhangyu.myophttpopen.fragement.SecondFragment;
-import com.zhangyu.myophttpopen.fragement.ThirdFragment;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
 
 
 /**
@@ -95,14 +84,34 @@ public class MainActivity_P2P extends FragmentActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_p2p);
-        EventBus.getDefault().register(this);
+      //  EventBus.getDefault().register(this);
         ButterKnife.bind(this);
-
+/*
         initView();
-        initListener();
+        initListener();*/
     }
 
-    private void initView() {
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+  /*  private void initView() {
         FirstFragment firstFragment = new FirstFragment();
         secondFragment = new SecondFragment();
         ThirdFragment thirdFragment = new ThirdFragment();
@@ -233,7 +242,7 @@ public class MainActivity_P2P extends FragmentActivity implements View.OnClickLi
 
     public boolean getFirstSelect() {
         return FLAG;
-    }
+    }*/
 
 
     /**
@@ -241,7 +250,7 @@ public class MainActivity_P2P extends FragmentActivity implements View.OnClickLi
      *
      * @param
      */
-    @Subscribe(threadMode = ThreadMode.MAIN)
+ /*   @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(NewMessageEvent event) {
         String msg = "onEventMainThread收到了消息：" + event.message;
         Log.d("harvic", msg);
@@ -252,12 +261,8 @@ public class MainActivity_P2P extends FragmentActivity implements View.OnClickLi
             vpMain.setCurrentItem(2);
         }
 
-    }
+    }*/
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);//反注册EventBus
-    }
+
 
 }

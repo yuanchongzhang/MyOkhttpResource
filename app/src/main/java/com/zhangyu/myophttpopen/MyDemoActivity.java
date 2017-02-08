@@ -14,14 +14,12 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.zhangyu.myophttpopen.activity.BannerActivity;
 import com.zhangyu.myophttpopen.activity.ImitationWxActivity;
-import com.zhangyu.myophttpopen.activity.MainActivity_P2P;
 import com.zhangyu.myophttpopen.activity.MaterialDesignActivity;
 import com.zhangyu.myophttpopen.activity.MyToolBarActivity;
+import com.zhangyu.myophttpopen.activity.NewMainActivity;
 import com.zhangyu.myophttpopen.activity.ScreenActivity;
 import com.zhangyu.myophttpopen.util.MD5Utils;
 import com.zhangyu.myophttpopen.view.MarqueeView;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -144,7 +142,7 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_getrequest:
-                startActivity(new Intent(MyDemoActivity.this, MainActivity_P2P.class));
+                startActivity(new Intent(MyDemoActivity.this, NewMainActivity.class));
                 // getData();
                 break;
 
@@ -178,13 +176,6 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
     }
 
 
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);//反注册EventBus
-    }
 
   /*  @Subscribe
     public void onEventMainThread(FirstEvent event) {
