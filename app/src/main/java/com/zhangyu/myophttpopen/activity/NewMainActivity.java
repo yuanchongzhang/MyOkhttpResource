@@ -43,7 +43,7 @@ public class NewMainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        EventBus.getDefault().register(this);
+      //  EventBus.getDefault().register(this);
         bindView();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

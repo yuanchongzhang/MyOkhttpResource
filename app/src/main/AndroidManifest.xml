@@ -41,7 +41,6 @@
         <activity android:name=".activity.ScreenActivity" />
         <activity android:name=".activity.TableLayoutActivity" />
         <activity android:name=".activity.NewMainActivity" />
-        <activity android:name=".activity.MySectionActivity" />
     </application>
 
 </manifest>
