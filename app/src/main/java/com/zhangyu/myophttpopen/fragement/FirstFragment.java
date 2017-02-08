@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhangyu.myophttpopen.R;
+import com.zhangyu.myophttpopen.activity.MySectionActivity;
 import com.zhangyu.myophttpopen.activity.ResultActivity;
 import com.zhangyu.myophttpopen.event.NewMessageEvent;
 
@@ -31,6 +32,9 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
 
     private TextView btn_jumptext;
 
+
+    private Button btn_recycleview_section;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         btn_jumpThird = (Button) view.findViewById(R.id.btn_jumpThird);
         btn_jumpResult = (Button) view.findViewById(R.id.btn_jumpResult);
         btn_jumptext = (TextView) view.findViewById(R.id.btn_jumptext);
+        btn_recycleview_section = (Button) view.findViewById(R.id.btn_recycleview_section);
         initListener();
         return view;
     }
@@ -55,6 +60,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
         btn_jumpThird.setOnClickListener(this);
         btn_jumpResult.setOnClickListener(this);
         btn_jumptext.setOnClickListener(this);
+        btn_recycleview_section.setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +80,10 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                 Intent intent = new Intent(getActivity(), ResultActivity.class);
                 startActivityForResult(intent, 100);
 //              startActivityForResult(new Intent(getActivity(),ResultActivity.class));
+                break;
+
+            case R.id.btn_recycleview_section:
+                startActivity(new Intent(getActivity(), MySectionActivity.class));
                 break;
 
         }
