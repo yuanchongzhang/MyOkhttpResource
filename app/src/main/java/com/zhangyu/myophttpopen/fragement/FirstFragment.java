@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhangyu.myophttpopen.R;
+import com.zhangyu.myophttpopen.activity.MySectionActivity;
 import com.zhangyu.myophttpopen.activity.ResultActivity;
 import com.zhangyu.myophttpopen.event.NewMessageEvent;
 
@@ -82,7 +83,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.btn_recycleview_section:
-//                startActivity(new Intent(getActivity(), MySectionActivity.class));
+               startActivity(new Intent(getActivity(), MySectionActivity.class));
                 break;
 
         }
