@@ -1,1 +1,1 @@
-include ':app', ':autolayout', ':library', ':okgo', ':indexlib'
+include ':app', ':autolayout', ':library', ':okgo'
