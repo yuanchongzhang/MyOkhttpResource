@@ -43,6 +43,8 @@
         <activity android:name=".activity.TableLayoutActivity" />
         <activity android:name=".activity.NewMainActivity" />
         <activity android:name=".activity.MySectionActivity" />
+        <activity android:name=".activity.HeadActivity" />
+        <activity android:name=".activity.ClipImageActivity"/>
     </application>
 
 </manifest>

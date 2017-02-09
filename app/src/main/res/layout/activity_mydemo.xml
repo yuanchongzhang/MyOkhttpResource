@@ -78,4 +78,13 @@
         android:text="跳转到仿微信动画效果"
 
         />
+
+    <Button
+
+        android:id="@+id/btn_get_jiemian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到剪裁界面"
+
+        />
 </LinearLayout>

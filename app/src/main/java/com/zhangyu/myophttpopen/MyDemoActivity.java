@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.zhangyu.myophttpopen.activity.BannerActivity;
+import com.zhangyu.myophttpopen.activity.HeadActivity;
 import com.zhangyu.myophttpopen.activity.ImitationWxActivity;
 import com.zhangyu.myophttpopen.activity.MaterialDesignActivity;
 import com.zhangyu.myophttpopen.activity.MyToolBarActivity;
@@ -61,6 +62,8 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
 
     private Button btn_get_jsoncallback;
 
+    private Button btn_get_jiemian;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +85,10 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
 
         btn_get_jsoncallback= (Button) findViewById(R.id.btn_get_jsoncallback);
         btn_get_jsoncallback.setOnClickListener(this);
+
+
+        btn_get_jiemian= (Button) findViewById(R.id.btn_get_jiemian);
+        btn_get_jiemian.setOnClickListener(this);
 
         str = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date(System.currentTimeMillis()));
         md5str = MD5Utils.encode("index/index" + "20160001" + str + "24SD%F4}S5").toUpperCase();
@@ -170,6 +177,10 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
             case R.id.btn_get_jsoncallback:
 
                startActivity(new Intent(MyDemoActivity.this, ImitationWxActivity.class));
+                break;
+
+            case R.id.btn_get_jiemian:
+                startActivity(new Intent(MyDemoActivity.this, HeadActivity.class));
                 break;
 
         }
