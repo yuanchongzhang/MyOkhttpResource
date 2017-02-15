@@ -34,7 +34,6 @@ public class ScreenActivity extends AutoLayoutActivity {
     }
 
 
-
     private void setImmersionStatus() {
         if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
             // 透明状态栏

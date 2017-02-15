@@ -45,6 +45,7 @@
         <activity android:name=".activity.MySectionActivity" />
         <activity android:name=".activity.HeadActivity" />
         <activity android:name=".activity.ClipImageActivity"/>
+        <activity android:name=".activity.LoginActivity"/>
     </application>
 
 </manifest>

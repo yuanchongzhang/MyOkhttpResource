@@ -15,6 +15,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.zhangyu.myophttpopen.activity.BannerActivity;
 import com.zhangyu.myophttpopen.activity.HeadActivity;
 import com.zhangyu.myophttpopen.activity.ImitationWxActivity;
+import com.zhangyu.myophttpopen.activity.LoginActivity;
 import com.zhangyu.myophttpopen.activity.MaterialDesignActivity;
 import com.zhangyu.myophttpopen.activity.MyToolBarActivity;
 import com.zhangyu.myophttpopen.activity.NewMainActivity;
@@ -27,6 +28,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -34,6 +37,8 @@ import okhttp3.Response;
  * Created by Administrator on 2017/1/11.
  */
 public class MyDemoActivity extends Activity implements View.OnClickListener {
+    @Bind(R.id.btn_get_Mvp)
+    Button btnGetMvp;
     //http://vhost119.zihaistar.com/api/index/token
     private String str;
     private Button banner;
@@ -55,7 +60,7 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
     Button btn_get_autolayout;
 
 
-   private MarqueeView marqueeView;
+    private MarqueeView marqueeView;
 
 
     private Button btn_get_materialdesign;
@@ -68,6 +73,7 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mydemo);
+        ButterKnife.bind(this);
 
         btn_getrequest = (Button) findViewById(R.id.btn_getrequest);
         btn_getrequest.setOnClickListener(this);
@@ -80,23 +86,26 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
 
         btn_get_autolayout = (Button) findViewById(R.id.btn_get_autolayout);
         btn_get_autolayout.setOnClickListener(this);
-        btn_get_materialdesign= (Button) findViewById(R.id.btn_get_materialdesign);
+        btn_get_materialdesign = (Button) findViewById(R.id.btn_get_materialdesign);
         btn_get_materialdesign.setOnClickListener(this);
 
-        btn_get_jsoncallback= (Button) findViewById(R.id.btn_get_jsoncallback);
+        btn_get_jsoncallback = (Button) findViewById(R.id.btn_get_jsoncallback);
         btn_get_jsoncallback.setOnClickListener(this);
 
 
-        btn_get_jiemian= (Button) findViewById(R.id.btn_get_jiemian);
+        btn_get_jiemian = (Button) findViewById(R.id.btn_get_jiemian);
         btn_get_jiemian.setOnClickListener(this);
+
+        //跳转到MVP
+        btnGetMvp.setOnClickListener(this);
 
         str = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date(System.currentTimeMillis()));
         md5str = MD5Utils.encode("index/index" + "20160001" + str + "24SD%F4}S5").toUpperCase();
 
-        marqueeView= (MarqueeView) findViewById(R.id.marqueeView);
+        marqueeView = (MarqueeView) findViewById(R.id.marqueeView);
         List<String> info = new ArrayList<>();
         info.add("1.开源项目okhttpopenresource");
-       // info.add("2.开发者：龙采科技张宇");
+        // info.add("2.开发者：龙采科技张宇");
         info.add("2.开发者：张宇");
         info.add("3. GitHub帐号：yuanchongzhang");
         info.add("4.开源项目地址：https://github.com/yuanchongzhang/MyOkHttpOpenResource");
@@ -176,15 +185,22 @@ public class MyDemoActivity extends Activity implements View.OnClickListener {
 
             case R.id.btn_get_jsoncallback:
 
-               startActivity(new Intent(MyDemoActivity.this, ImitationWxActivity.class));
+                startActivity(new Intent(MyDemoActivity.this, ImitationWxActivity.class));
                 break;
 
             case R.id.btn_get_jiemian:
                 startActivity(new Intent(MyDemoActivity.this, HeadActivity.class));
                 break;
 
+            case R.id.btn_get_Mvp:
+                startActivity(new Intent(MyDemoActivity.this, LoginActivity.class));
+
+                break;
+
         }
     }
+
+
 
 
 
